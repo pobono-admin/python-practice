@@ -69,18 +69,11 @@ for name, phone in table.items():
 
 
 
-
-
-
-
-
-
-
 # Generate some test data
 data = np.arange(200).reshape((1, 1,200))
 
 # Write the array to disk
-with file('test1.txt', 'w') as outfile:
+with file('test3D.txt', 'w') as outfile:
     # I'm writing a header here just for the sake of readability
     # Any line starting with "#" will be ignored by numpy.loadtxt
     # outfile.write('# Array shape: {0}\n'.format(data.shape))
@@ -98,9 +91,18 @@ with file('test1.txt', 'w') as outfile:
         outfile.write('# New slice\n')
 
 
-new_data = np.loadtxt('test1.txt')
-print new_data
+# new_data = np.loadtxt('test1.txt')
+# print new_data
 
+
+x = np.arange(20).reshape((4,5))
+np.savetxt('test2D.txt', x, fmt = '%-7.0f')  # %s ==> string
+
+
+
+
+a = np.array([[1,2,3], [4,5,6], [7,8,9]])
+print np.reshape(a, (9,1))
 
 
 
